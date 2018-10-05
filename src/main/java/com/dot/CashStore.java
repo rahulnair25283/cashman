@@ -1,12 +1,37 @@
 package com.dot;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
+
+import com.google.common.collect.Lists;
 
 public class CashStore {
 
     enum Denomination {
-        TWENTY, FIFTY, HUNDRED;
+        TWENTY(20), FIFTY(50), HUNDRED(100);
+
+        int value;
+
+        Denomination(int value) {
+            this.value = value;
+        }
+
+        public static List<Integer> getValues() {
+            return Lists.newArrayList(Denomination.values()).stream()
+                    .map(denomination -> denomination.value).collect(Collectors.toList());
+        }
+        
+        public static Denomination fromValue(int value) {
+            Denomination[] denominations = Denomination.values();
+            for (Denomination denomination : denominations) {
+                if (denomination.value == value) {
+                    return denomination;
+                }
+            }
+            return null;
+        }
     }
 
     private static CashStore cashStore;
@@ -40,14 +65,13 @@ public class CashStore {
         store.put(denomination, numberOfNotes);
     }
 
-    public int getNumberOf(Denomination denomination) throws Exception {
+    public int getNumberOf(Denomination denomination) {
         if (!store.containsKey(denomination)) {
-            throw new Exception(
-                    "The cash store does not contain notes of denominaton " + denomination.name());
+            return -1;
         }
         return store.get(denomination);
     }
-    
+
     public void destroy() {
         cashStore = null;
     }

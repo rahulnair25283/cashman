@@ -30,41 +30,29 @@ public class CashStoreTest {
     public void shouldInitialiseStoreWithGivenCurrencies() throws Exception {
         assertThat(cashStore.getNumberOf(Denomination.TWENTY), is(10));
         assertThat(cashStore.getNumberOf(Denomination.FIFTY), is(10));
-        
-        cashStore.destroy();
     }
 
-    @Test(expected = Exception.class)
+    @Test
     public void shouldThrowExceptionIfNotesOfAGivenDenominationNotFoundInStore() throws Exception {
-        assertThat(cashStore.getNumberOf(Denomination.HUNDRED), is(0));
-        cashStore.destroy();
+        assertThat(cashStore.getNumberOf(Denomination.HUNDRED), is(-1));
     }
 
     @Test
     public void shouldAddNotesToStore() throws Exception {
         cashStore.add(Denomination.TWENTY, 5);
-
         assertThat(cashStore.getNumberOf(Denomination.TWENTY), is(15));
-        
-        cashStore.destroy();
     }
 
     @Test
     public void shouldRemoveNotesFromStore() throws Exception {
         cashStore.remove(Denomination.FIFTY, 4);
-
         assertThat(cashStore.getNumberOf(Denomination.FIFTY), is(6));
-    
-        cashStore.destroy();
     }
 
     @Test(expected = Exception.class)
     public void shouldThrowExceptionIfNumberOfNotesToBeRemovedIsMoreThanNumberOfNotesInStore()
             throws Exception {
         cashStore.remove(Denomination.FIFTY, 15);
-
         assertThat(cashStore.getNumberOf(Denomination.FIFTY), is(10));
-    
-        cashStore.destroy();
     }
 }
