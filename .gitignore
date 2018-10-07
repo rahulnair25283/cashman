@@ -1,3 +1,6 @@
 .idea
 target/
-.classpath
+.classpat
+.project
+.settings/
+cashman.iml
