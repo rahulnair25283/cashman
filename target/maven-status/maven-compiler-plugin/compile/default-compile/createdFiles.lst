@@ -1,4 +1,7 @@
-com/dot/Main.class
-com/dot/CashStore$Denomination.class
-com/dot/CashStore.class
-com/dot/Cashman.class
+com/dot/cashman/DispenseCombinationException.class
+com/dot/cashman/Cashman.class
+com/dot/cashstore/Denomination.class
+com/dot/cashman/Main.class
+com/dot/cashman/DispenseCombinationCalculator.class
+com/dot/cashstore/CashStore.class
+com/dot/cashstore/CashStoreException.class

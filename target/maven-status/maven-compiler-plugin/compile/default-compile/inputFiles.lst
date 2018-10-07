@@ -1,3 +1,7 @@
-/Users/rahulnair/Work/Repo/cashman/src/main/java/com/dot/CashStore.java
-/Users/rahulnair/Work/Repo/cashman/src/main/java/com/dot/Cashman.java
-/Users/rahulnair/Work/Repo/cashman/src/main/java/com/dot/Main.java
+/Users/rahulnair/Work/Repo/cashman/src/main/java/com/dot/cashman/Cashman.java
+/Users/rahulnair/Work/Repo/cashman/src/main/java/com/dot/cashman/Main.java
+/Users/rahulnair/Work/Repo/cashman/src/main/java/com/dot/cashman/DispenseCombinationCalculator.java
+/Users/rahulnair/Work/Repo/cashman/src/main/java/com/dot/cashstore/CashStore.java
+/Users/rahulnair/Work/Repo/cashman/src/main/java/com/dot/cashstore/Denomination.java
+/Users/rahulnair/Work/Repo/cashman/src/main/java/com/dot/cashman/DispenseCombinationException.java
+/Users/rahulnair/Work/Repo/cashman/src/main/java/com/dot/cashstore/CashStoreException.java

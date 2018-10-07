@@ -1,4 +1,4 @@
-package com.dot;
+package com.dot.cashstore;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
@@ -9,20 +9,18 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.runners.MockitoJUnitRunner;
 
-import com.dot.CashStore.Denomination;
-
 @RunWith(MockitoJUnitRunner.class)
 public class CashStoreTest {
-    
+
     private CashStore cashStore;
-    
+
     @Before
     public void setupTest() {
         cashStore = CashStore.openWith(10, 10);
     }
-    
+
     @After
-    public void tearDownTest() {
+    public void tearDownTest() throws CashStoreException {
         cashStore.destroy();
     }
 
@@ -33,26 +31,21 @@ public class CashStoreTest {
     }
 
     @Test
-    public void shouldThrowExceptionIfNotesOfAGivenDenominationNotFoundInStore() throws Exception {
-        assertThat(cashStore.getNumberOf(Denomination.HUNDRED), is(-1));
-    }
-
-    @Test
     public void shouldAddNotesToStore() throws Exception {
-        cashStore.add(Denomination.TWENTY, 5);
+        cashStore.addNotes(Denomination.TWENTY, 5);
         assertThat(cashStore.getNumberOf(Denomination.TWENTY), is(15));
     }
 
     @Test
     public void shouldRemoveNotesFromStore() throws Exception {
-        cashStore.remove(Denomination.FIFTY, 4);
+        cashStore.removeNotes(Denomination.FIFTY, 4);
         assertThat(cashStore.getNumberOf(Denomination.FIFTY), is(6));
     }
 
     @Test(expected = Exception.class)
     public void shouldThrowExceptionIfNumberOfNotesToBeRemovedIsMoreThanNumberOfNotesInStore()
             throws Exception {
-        cashStore.remove(Denomination.FIFTY, 15);
+        cashStore.removeNotes(Denomination.FIFTY, 15);
         assertThat(cashStore.getNumberOf(Denomination.FIFTY), is(10));
     }
 }
