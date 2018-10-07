@@ -34,9 +34,6 @@ public class Main {
                 io.close();                
             }
         }
-        
-        
-        
     }
 
     private static void start(Scanner io) {
@@ -80,6 +77,7 @@ public class Main {
         System.out.println("");
         System.out.println("Lucky you! No uncaught exceptions, bye! :(");
         System.out.println("P.S. My unit tests cover a lot more scenarios. ;) ");
+        System.out.println("");
         if (io != null) {
             io.close();            
         }
