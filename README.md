@@ -9,5 +9,5 @@
 2. Open command line and navigate the repo directory
 3. Run the command `mvn clean compile assembly:single`
 4. Run the command `java -jar target/cashman-1.0.jar`
---
+---
 5. To run unit tests, run the command `mvn test`
