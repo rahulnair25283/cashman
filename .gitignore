@@ -1,6 +1,6 @@
 .idea
 target/
-.classpat
+.classpath
 .project
 .settings/
 cashman.iml

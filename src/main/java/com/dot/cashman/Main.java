@@ -48,8 +48,11 @@ public class Main {
         System.out.print("How many $50 notes will I consume? (Reasonable number or death): ");
         int numberOfFifties = io.nextInt();
         
+        System.out.println("");
+        
         cashman = Cashman.createWith(CashStore.openWith(numberOfTwenties, numberOfFifties));
         
+        System.out.println("");
         System.out.println("-----------------------------------------------------");
         System.out.println("I am now fully setup and ready to dispense some cash.");
         System.out.println("");
@@ -64,7 +67,10 @@ public class Main {
             System.out.println("------------------------------------------------");
             System.out.print("How much money would you like me to dispense?: $");
             int amount = io.nextInt();
+            
+            System.out.println("");
             cashman.dispense(amount);
+            System.out.println("");
             
         case 2:
         default:
